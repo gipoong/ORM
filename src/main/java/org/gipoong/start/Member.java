@@ -7,15 +7,15 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "MEMBER")
 public class Member {
 
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private String id;  // 아이디
 
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = false, length = 10)
     private String username; // 이름
+
     private Integer age; // 나이
 
     // ==추가==

@@ -23,19 +23,17 @@ public class JpaMain {
 
             Member memberA = new Member();
             Member memberB = new Member();
-            memberA.setId("100");
-            memberB.setId("101");
             memberA.setAge(23);
             memberB.setAge(50);
             memberA.setUsername("abc");
             memberB.setUsername("홍길동");
+            memberB.setRoleType(RoleType.PRIVATE);
+
             em.persist(memberA);
             em.persist(memberB);
 
-            em.detach(memberA);
+            //em.detach(memberA);
 
-            Member memberC = em.find(Member.class, "101");
-            System.out.println(memberC.getUsername());
             //logic(em);  // 비즈니스 로직 실행
             tx.commit();// 트랜잭션 - 커밋
         }catch(Exception e){
